@@ -24,8 +24,8 @@ means=-means;
 %Con la intención de no obtener una componente de DC muy alta en la FFT, se busca eliminar ese offset.
 DC_component=mean(means(:));
 means=means-DC_component;
+figure
 plot(t,means)
-
 %Obtenemos la FFT de la señal y observamos las componentes de frecuencia que son más altas. 
 Ts=1/30; %time increment for every second
 fs=1/Ts;
@@ -35,6 +35,7 @@ P2=abs(y/L);
 P1=P2(1:L/2+1);
 P1(2:end-1)=2*P1(2:end-1);
 f=fs*(0:(L/2))/L;
+figure
 plot(f,P1)
 title('FFT del vector de promedios')
 xlabel('Hz')
